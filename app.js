@@ -1,5 +1,6 @@
 import express from 'express';
-import router from './routes/user.js';
+import userRouter from './routes/user.js';
+import taskRouter from './routes/task.js';
 import { config } from 'dotenv';
 import cookieParser from 'cookie-parser';
 
@@ -13,7 +14,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Using Routes
-app.use('/api/v1/users', router);
+app.use('/api/v1/users', userRouter);
+app.use('/api/v1/task', taskRouter);
 
 app.get('/', (req, res) => {
   res.send('Nice working');
