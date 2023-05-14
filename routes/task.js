@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.post('/new', isAuthenticated, newTask);
 
-router.get('/mytasks', isAuthenticated, getMyTask);
+router.get('/my', isAuthenticated, getMyTask);
 
 export default router;
