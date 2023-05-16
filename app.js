@@ -21,6 +21,10 @@ app.use(
     credentials: true,
   })
 );
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  next();
+});
 
 // Using Routes
 app.use('/api/v1/users', userRouter);
