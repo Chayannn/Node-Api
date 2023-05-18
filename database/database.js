@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 export const connectDB = () => {
   mongoose
     .connect(process.env.MONGO_URI, {
-      dbName: 'BackendApi',
+      dbName: "BackendApi",
     })
-    .then(() => console.log('Database connected'))
+    .then(() => console.log("Database connected"))
     .catch((e) => console.log(e));
 };

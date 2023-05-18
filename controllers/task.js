@@ -1,5 +1,5 @@
-import ErrorHandler from '../middlewares/error.js';
-import { Task } from '../models/task.js';
+import ErrorHandler from "../middlewares/error.js";
+import { Task } from "../models/task.js";
 
 export const newTask = async (req, res, next) => {
   try {
@@ -12,7 +12,7 @@ export const newTask = async (req, res, next) => {
     });
     res.status(201).json({
       success: true,
-      messsage: 'Task added successfully',
+      messsage: "Task added successfully",
     });
   } catch (error) {
     next(error);
@@ -38,13 +38,13 @@ export const updateTask = async (req, res, next) => {
 
     const task = await Task.findById(id);
 
-    if (!task) return next(new ErrorHandler('Task not found', 404));
+    if (!task) return next(new ErrorHandler("Task not found", 404));
 
     task.isCompleted = !task.isCompleted;
     await task.save();
     res.status(200).json({
       success: true,
-      messsage: 'task updated',
+      messsage: "task updated",
     });
   } catch (error) {
     next(error);
@@ -56,13 +56,13 @@ export const deleteTask = async (req, res, next) => {
 
     const task = await Task.findById(id);
 
-    if (!task) return next(new ErrorHandler('Task not found', 404));
+    if (!task) return next(new ErrorHandler("Task not found", 404));
 
     await task.deleteOne();
 
     res.status(200).json({
       success: true,
-      messsage: 'Task deleted',
+      messsage: "Task deleted",
     });
   } catch (error) {
     next(error);
